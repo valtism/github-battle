@@ -10,7 +10,7 @@ function getErrorMessage(message, username) {
 }
 
 function getProfile(username) {
-  return fetch(`https://api.github.com/users/${username}${params})`)
+  return fetch(`https://api.github.com/users/${username}${params}`)
     .then(res => res.json())
     .then(profile => {
       if (profile.message) {

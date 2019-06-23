@@ -24,19 +24,21 @@ export default class Results extends React.Component {
   componentDidMount() {
     const { playerOne, playerTwo } = this.props;
 
-    battle([playerOne, playerTwo]).then(players =>
-      this.setState({
-        winner: players[0],
-        loser: players[1],
-        error: null,
-        loading: false
-      }).catch(({ message }) =>
+    battle([playerOne, playerTwo])
+      .then(players =>
+        this.setState({
+          winner: players[0],
+          loser: players[1],
+          error: null,
+          loading: false
+        })
+      )
+      .catch(({ message }) =>
         this.setState({
           error: message,
           loading: false
         })
-      )
-    );
+      );
   }
   render() {
     const { winner, loser, error, loading } = this.state;
